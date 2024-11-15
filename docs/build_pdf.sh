@@ -3,7 +3,7 @@
 set -x
 dir=$(dirname "$0")
 index_file=$dir/SUMMARY.md
-md_files=$(grep -Poz "\(.*md" $index_file  | tr '(' "$dir" | tr -d '\0')
+md_files=$(grep -Poz "\(.*md" $index_file  | tr '(' " $dir" | tr -d '\0')
 tex_files=$dir/graphics.tex
 file_name=EBcL_SDK.pdf
 
