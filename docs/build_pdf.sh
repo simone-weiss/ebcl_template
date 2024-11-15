@@ -17,6 +17,6 @@ while [[ "$#" -gt 0 ]]; do
 done
 
 pandoc "$tex_files" $md_files -o "$file_name" --pdf-engine=lualatex --from markdown \
- --template "template/eisvogel.tex" --listings --resource-path=assets
+ --template "./template/eisvogel.tex" --listings --resource-path=assets
 
 cd -
