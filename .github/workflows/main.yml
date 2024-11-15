@@ -15,7 +15,7 @@ jobs:
           sudo apt-get update && sudo apt-get install -y pandoc texlive texlive-fonts-recommended texlive-fonts-extra texlive-luatex
           sudo cp ${GITHUB_WORKSPACE}/docs/template/eisvogel.tex /usr/share/pandoc/data/templates/eisvogel.tex
           bash -x ${GITHUB_WORKSPACE}/docs/build_pdf.sh -o EBcL_SDK_$GITHUB_REF_NAME.pdf
-          ls /home/runner/work/ebcl_template/ebcl_template
+          find -name EBcL_SDK_${{ github.ref_name }}.pdf
       - name: pdf release
         uses: softprops/action-gh-release@v2
         with:
