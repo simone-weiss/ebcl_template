@@ -1,7 +1,7 @@
 #!/bin/bash
 
 index_file=$(dirname "$0")/SUMMARY.md
-template_file==$(dirname "$0")/template/eisvogel.tex
+template_file=$(dirname "$0")/template/eisvogel.tex
 md_files=$(grep -Poz "\(.*md" $index_file  | tr '(' " "| tr -d '\0')
 tex_files=graphics.tex
 file_name=EBcL_SDK.pdf
