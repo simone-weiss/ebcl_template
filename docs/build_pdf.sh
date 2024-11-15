@@ -1,6 +1,7 @@
 #!/bin/bash
 
-md_files=$(grep -Poz "\(.*md" SUMMARY.md  | tr '(' " "| tr -d '\0')
+index_file=$(dirname "$0")/SUMMARY.md
+md_files=$(grep -Poz "\(.*md" $index_file  | tr '(' " "| tr -d '\0')
 tex_files=graphics.tex
 file_name=EBcL_SDK.pdf
 
