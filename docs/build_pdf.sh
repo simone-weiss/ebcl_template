@@ -1,14 +1,13 @@
 #!/bin/bash
 
-set -x
 dir=$(dirname "$0")
-index_file=$dir/SUMMARY.md
-md_files=$(grep -Poz "\(.*md" $index_file  | tr '(' " $dir" | tr -d '\0')
-tex_files=$dir/graphics.tex
+index_file="$dir"/SUMMARY.md
+md_files=$(grep -Poz '\(.*md' "$index_file" |  sed -e "s/(/ ${dir}\//g")
+tex_files="$dir"/graphics.tex
 file_name=EBcL_SDK.pdf
 
 while [[ "$#" -gt 0 ]]; do
-    case $1 in
+    case "$1" in
         -md) md_files="$2"; shift ;;
         -tex) tex_files="$2"; shift ;;
         -o) file_name="$2"; shift ;;
@@ -17,6 +16,5 @@ while [[ "$#" -gt 0 ]]; do
     shift
 done
 
-
-pandoc $tex_files $md_files -o $file_name --pdf-engine=lualatex --from markdown \
- --template "$dir/template/eisvogel.tex" --listings --resource-path=assets
+pandoc "$tex_files" $md_files -o "$file_name" --pdf-engine=lualatex --from markdown \
+ --template "$dir/template/eisvogel.tex" --listings --resource-path="$dir"/assets
