@@ -14,12 +14,9 @@ jobs:
         run: |
           sudo apt-get update && sudo apt-get install -y pandoc texlive texlive-fonts-recommended texlive-fonts-extra texlive-luatex
           bash -x ${GITHUB_WORKSPACE}/docs/build_pdf.sh -o EBcL_SDK_$GITHUB_REF_NAME.pdf
-      - name: upload darwin artifact
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
+      - name: pdf release
+        uses: softprops/action-gh-release@v2
         with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ${GITHUB_WORKSPACE}/docs/EBcL_SDK_$GITHUB_REF_NAME.pdf
-          asset_name: EBcL_SDK_$GITHUB_REF_NAME.pdf
-          asset_content_type: application/pdf
+          name: Pdf docs for $GITHUB_REF_NAME ${{ github.event.head_commit.message }}
+          tag_name: $GITHUB_REF_NAME
+          files: EBcL_SDK_$GITHUB_REF_NAME.pdf
