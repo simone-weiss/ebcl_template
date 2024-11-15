@@ -12,5 +12,5 @@ jobs:
       - uses: actions/checkout@v2
       - name: Build pdf docu
         run: |
-          sudo apt-get update && sudo apt-get install -y pandoc texlive texlive-fonts-recommended texlive-fonts-extra
+          sudo apt-get update && sudo apt-get install -y pandoc texlive texlive-fonts-recommended texlive-fonts-extra texlive-luatex
           bash -x ${GITHUB_WORKSPACE}/docs/build_pdf.sh -o EBcL_SDK_$GITHUB_REF_NAME.pdf
