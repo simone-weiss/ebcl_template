@@ -17,6 +17,6 @@ jobs:
       - name: pdf release
         uses: softprops/action-gh-release@v2
         with:
-          name: Pdf docs for $GITHUB_REF_NAME ${{ github.event.head_commit.message }}
-          tag_name: $GITHUB_REF_NAME
-          files: EBcL_SDK_$GITHUB_REF_NAME.pdf
+          name: Pdf docs for ${{ github.ref_name }} ${{ github.event.head_commit.message }}
+          tag_name: ${{ github.ref_name }}
+          files: EBcL_SDK_${{ github.ref_name }}.pdf
