@@ -13,4 +13,4 @@ jobs:
       - name: Build pdf docu
         run: |
           sudo apt-get update && sudo apt-get install -y pandoc texlive texlive-fonts-recommended texlive-fonts-extra
-          bash ${GITHUB_WORKSPACE}/docs/build_pdf.sh -o EBcL_SDK_$GITHUB_REF_NAME.pdf
+          bash -x ${GITHUB_WORKSPACE}/docs/build_pdf.sh -o EBcL_SDK_$GITHUB_REF_NAME.pdf
