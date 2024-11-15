@@ -19,4 +19,4 @@ done
 
 
 pandoc $tex_files $md_files -o $file_name --pdf-engine=lualatex --from markdown \
- --template eisvogel --listings --resource-path=assets
+ --template "$dir/eisvogel.tex" --listings --resource-path=assets
