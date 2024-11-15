@@ -20,4 +20,4 @@ jobs:
         with:
           name: Pdf docs for ${{ github.ref_name }} ${{ github.event.head_commit.message }}
           tag_name: ${{ github.ref_name }}
-          files: EBcL_SDK_${{ github.ref_name }}.pdf
+          files: /home/runner/work/ebcl_template/ebcl_template/EBcL_SDK_${{ github.ref_name }}.pdf
